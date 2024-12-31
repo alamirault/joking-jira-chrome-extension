@@ -39,7 +39,7 @@ const Popup = () => {
 
   return (
     <div id="configuration-pop-up">
-      <div className="container">
+      <div className="p-1">
         <h1 className="text-center mt-0">
           <span className="d-block">Joking Jira</span>
           <img src="./icon-128.png" alt="Joking Jira" title="Joking Jira" />
@@ -107,7 +107,7 @@ const Popup = () => {
         </div>
 
         <p className="text-center text-secondary mb-0 mt-2">
-          Made from frustration
+          Made with <span className="fs-1">♥️</span> from frustration
         </p>
       </div>
     </div>
