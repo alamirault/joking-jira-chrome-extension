@@ -1,44 +1,38 @@
-import waitForElement from '../common/waitForElement'
+import waitForElement from "../common/waitForElement";
 
-chrome.storage.sync.get(
-    ['disableEmojiAutocomplete'],
-    (items) => {
-        if(items.disableEmojiAutocomplete){
-            disableEmojiAutocomplete();
-        }
-    }
-);
+chrome.storage.sync.get(["disableEmojiAutocomplete"], (items) => {
+  if (chrome.runtime.lastError) {
+    console.error("Failed to fetch settings:", chrome.runtime.lastError);
+    return;
+  }
+  if (items.disableEmojiAutocomplete) {
+    disableEmojiAutocomplete();
+  }
+});
 
 const disableEmojiAutocomplete = () => {
+  const handleKeyUpEvent = (event: Event) => {
+    // @ts-expect-error -> Unresolved variable key
+    if (event.key === ":") {
+      const activeElement = document.activeElement;
+      if (activeElement) {
+        const spaceEvent = new KeyboardEvent("keydown", {
+          key: " ",
+          code: "Space",
+          bubbles: true,
+          cancelable: false,
+        });
+        activeElement.dispatchEvent(spaceEvent);
+      }
+    }
+  };
 
-    const selector = '.ProseMirror';
-
-    const handleKeyUpEvent = (event: Event) => {
-        // @ts-expect-error -> Unresolved variable key
-        if (event.key === ':') {
-            const activeElement = document.activeElement;
-            if (activeElement) {
-                const spaceEvent = new KeyboardEvent('keydown', {
-                    key: ' ',
-                    code: 'Space',
-                    bubbles: true,
-                    cancelable: false,
-                });
-                activeElement.dispatchEvent(spaceEvent);
-            }
-        }
-    };
-
-
-    waitForElement(selector).then((title:  Element | null) => {
-
-        console.info('Hello prose miror 1');
-
-        const proseMirrorElement: Element | null = document.querySelector('.ProseMirror');
-
-        if(proseMirrorElement) {
-
-            proseMirrorElement.addEventListener('keyup', handleKeyUpEvent, { passive: true });
-        }
-    });
-}
+  const selector = ".ProseMirror";
+  waitForElement(selector).then((proseMirrorElement: Element | null) => {
+    if (proseMirrorElement) {
+      proseMirrorElement.addEventListener("keyup", handleKeyUpEvent, {
+        passive: true,
+      });
+    }
+  });
+};

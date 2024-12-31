@@ -12,8 +12,12 @@
   },
   "content_scripts": [
       {
-          "matches": ["<all_urls>"],
-          "js": ["js/vendor.js", "js/sprint_goal_as_title.js", "js/disable_emoji_autocomplete.js", "js/force_display_copy_link.js"]
+          "matches": ["*://*.atlassian.net/jira*"],
+          "js": ["js/vendor.js", "js/sprint_goal_as_title.js", "js/force_display_copy_link.js"]
+      },
+      {
+        "matches": ["*://*.atlassian.net/*"],
+        "js": ["js/vendor.js", "js/disable_emoji_autocomplete.js"]
       }
   ],
   "icons": {
@@ -26,10 +30,6 @@
     "service_worker": "js/background.js"
   },
   "permissions": [
-    "activeTab",
     "storage"
-  ],
-  "host_permissions": [
-    "<all_urls>"
   ]
 }
