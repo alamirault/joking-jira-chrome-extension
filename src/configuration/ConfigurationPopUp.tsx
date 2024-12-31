@@ -43,7 +43,7 @@ const Popup = () => {
             <div className="container">
                 <h1 className="text-center mt-0">
                     <span className="d-block">Joking Jira</span>
-                    <img src="./joking-jira-logo-128.png" alt="Joking Jira" title="Joking Jira"/>
+                    <img src="./icon-128.png" alt="Joking Jira" title="Joking Jira"/>
                 </h1>
 
                 <div className="d-flex justify-content-between">

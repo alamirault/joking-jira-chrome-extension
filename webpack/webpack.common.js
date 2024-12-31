@@ -12,7 +12,7 @@ module.exports = {
         force_display_copy_link: path.join(srcDir, 'alteration/forceDisplayCopyLink.ts'),
     },
     output: {
-        path: path.join(__dirname, "../dist/js"),
+        path: path.join(__dirname, "../build/js"),
         filename: "[name].js",
     },
     optimization: {

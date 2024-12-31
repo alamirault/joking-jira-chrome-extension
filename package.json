@@ -1,20 +1,13 @@
 {
-  "name": "chrome-extension-typescript-starter",
+  "name": "joking-jira-chrome-extension",
   "version": "1.0.0",
-  "description": "chrome-extension-typescript-starter",
+  "description": "joking-jira-chrome-extension",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
     "build": "webpack --config webpack/webpack.prod.js",
-    "clean": "rimraf dist",
-    "test": "npx jest",
+    "clean": "rimraf build",
     "style": "prettier --write \"src/**/*.{ts,tsx}\""
-  },
-  "author": "",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
   },
   "dependencies": {
     "antd": "^5.22.6",
@@ -23,15 +16,12 @@
   },
   "devDependencies": {
     "@types/chrome": "0.0.158",
-    "@types/jest": "^29.5.0",
     "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
     "copy-webpack-plugin": "^9.0.1",
     "glob": "^7.1.6",
-    "jest": "^29.5.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2 ",
-    "ts-jest": "^29.1.0",
     "ts-loader": "^8.0.0",
     "typescript": "^5.0.4",
     "webpack": "^5.94.0",
