@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "webpack --config webpack/webpack.prod.js",
+    "build": "rm -rf build; webpack --config webpack/webpack.prod.js",
     "clean": "rimraf build",
     "prettier": "prettier --write \"src/**/*.{ts,tsx}\""
   },
